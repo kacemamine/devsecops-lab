@@ -1,0 +1,8 @@
+#!/bin/sh
+msg=$(head -n1 "$1")
+case "$msg" in Merge\ *) exit 0 ;; esac
+
+if ! echo "$msg" | grep -Eq '^(feat|fix|docs|chore|refactor|test|ci|security)(\([a-z0-9-]+\))?: .{3,60} \(#[0-9]+\)$'; then
+    echo "Invalid message. Expected: type(scope): summary (#issue)"
+    exit 1
+fi
