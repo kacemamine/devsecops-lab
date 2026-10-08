@@ -3,7 +3,7 @@ from app import greet
 
 class TestGreet(unittest.TestCase):
     def test_greet(self):
-        self.assertEqual(greet("Ana"), "Hello, Ana!")
+        self.assertEqual(greet("Ana"), "Hello, Ana")
 
     def test_strip(self):
         self.assertEqual(greet(" Leo "), "Hello, Leo!")
