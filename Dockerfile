@@ -1,5 +1,16 @@
+
 FROM python:3.12-slim
-WORKDIR /app
-COPY app.py server.py ./
+
+RUN useradd --create-home appuser
+
+WORKDIR /home/appuser
+
+COPY --chown=appuser:appuser app.py server.py ./
+
+USER appuser
+
 EXPOSE 8000
-CMD ["python","server.py"]
+
+LABEL org.opencontainers.image.source="https://github.com/kacemamine/devsecops-lab"
+
+CMD ["python", "server.py"]
