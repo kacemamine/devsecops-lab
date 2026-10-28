@@ -1,4 +1,8 @@
+
 def greet(name):
-    if not name.strip():
-        raise ValueError("name must not be empty")
-    return "Hello, " + name.strip() + "!"
+    name = name.strip()
+
+    if not name:
+        raise ValueError("Name cannot be empty")
+
+    return "Hello, " + name + "!"
