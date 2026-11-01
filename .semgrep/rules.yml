@@ -1,0 +1,7 @@
+
+rules:
+  - id: no-shell-true
+    languages: [python]
+    severity: ERROR
+    message: "subprocess with shell=True allows command injection (CWE-78)"
+    pattern: subprocess.$FUNC(..., shell=True, ...)
