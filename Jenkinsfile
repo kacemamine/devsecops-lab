@@ -41,6 +41,16 @@ pipeline {
         }
       }
     }
+
+    stage('Secret demo') {
+      steps {
+        withCredentials([string(credentialsId: 'demo-token', variable: 'TOKEN')]) {
+          sh 'echo "Token is set, length: ${#TOKEN}"'
+          sh 'echo "$TOKEN"'
+          sh 'echo "$TOKEN" | rev'
+        }
+      }
+    }
   }
 
   post {
